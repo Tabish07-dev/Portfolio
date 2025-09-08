@@ -82,9 +82,6 @@ const RestaurantDemo: React.FC = () => {
               <a href="#menu" className="text-gray-600 hover:text-gray-900">Menu</a>
               <a href="#about" className="text-gray-600 hover:text-gray-900">About</a>
               <a href="#contact" className="text-gray-600 hover:text-gray-900">Contact</a>
-              <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">
-                Reserve Table
-              </button>
             </nav>
           </div>
         </div>
@@ -176,63 +173,3 @@ const RestaurantDemo: React.FC = () => {
                       <h4 className="text-xl font-semibold text-gray-900">{item.name}</h4>
                       <span className="text-xl font-bold text-red-600">{item.price}</span>
                     </div>
-                    <p className="text-gray-600">{item.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Visit Us Today</h3>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <HiLocationMarker className="h-5 w-5 mr-3 text-red-400" />
-                  <span>123 Italian Street, Food District, City 12345</span>
-                </div>
-                <div className="flex items-center">
-                  <HiPhone className="h-5 w-5 mr-3 text-red-400" />
-                  <span>(555) 123-4567</span>
-                </div>
-                <div className="flex items-center">
-                  <HiClock className="h-5 w-5 mr-3 text-red-400" />
-                  <span>Mon-Sun: 11:00 AM - 11:00 PM</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Make a Reservation</h3>
-              <form className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-red-500 focus:outline-none"
-                />
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-red-500 focus:outline-none"
-                />
-                <input
-                  type="date"
-                  className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-red-500 focus:outline-none"
-                />
-                <button className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition-colors duration-200">
-                  Reserve Table
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-};
-
-export default RestaurantDemo;
