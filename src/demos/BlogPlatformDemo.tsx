@@ -309,24 +309,6 @@ const BlogPlatformDemo: React.FC = () => {
 
           {/* Sidebar */}
           <div className="lg:col-span-1 space-y-8">
-            {/* Newsletter Signup */}
-            <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl p-6 text-white">
-              <h3 className="text-xl font-bold mb-3">Stay Updated</h3>
-              <p className="text-purple-100 mb-4">
-                Get the latest articles and insights delivered to your inbox.
-              </p>
-              <div className="space-y-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full px-4 py-2 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-300"
-                />
-                <button className="w-full bg-white text-purple-600 py-2 rounded-lg font-semibold hover:bg-purple-50 transition-colors duration-200">
-                  Subscribe
-                </button>
-              </div>
-            </div>
-
             {/* Trending Topics */}
             <div className="bg-white rounded-xl p-6 shadow-lg">
               <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
