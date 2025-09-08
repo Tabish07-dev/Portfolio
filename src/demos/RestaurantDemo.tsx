@@ -173,3 +173,42 @@ const RestaurantDemo: React.FC = () => {
                       <h4 className="text-xl font-semibold text-gray-900">{item.name}</h4>
                       <span className="text-xl font-bold text-red-600">{item.price}</span>
                     </div>
+                    <p className="text-gray-600">{item.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="bg-gray-900 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold mb-4">Visit Us Today</h3>
+            <p className="text-gray-400">We’d love to welcome you to Bella Vista</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-4">
+              <div className="flex items-center">
+                <HiLocationMarker className="h-5 w-5 mr-3 text-red-400" />
+                <span>123 Italian Street, Food District, City 12345</span>
+              </div>
+              <div className="flex items-center">
+                <HiPhone className="h-5 w-5 mr-3 text-red-400" />
+                <span>(555) 123-4567</span>
+              </div>
+              <div className="flex items-center">
+                <HiClock className="h-5 w-5 mr-3 text-red-400" />
+                <span>Mon-Sun: 11:00 AM - 11:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default RestaurantDemo;
