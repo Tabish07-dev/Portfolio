@@ -136,7 +136,7 @@ const Contact: React.FC = () => {
             </div>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="flex gap-12">
             {/* Contact Information */}
             <motion.div variants={itemVariants} className="space-y-8">
               <div>
