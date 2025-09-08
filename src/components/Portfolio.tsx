@@ -35,7 +35,8 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
     {
       id: 100,
       title: 'MERN Stack Social App',
-      description: 'A full-stack social media application built with MongoDB, Express.js, React.js, and Node.js. Features authentication, real-time chat, and RESTful APIs.',
+     description: 'A full-stack social media application built with MongoDB, Express.js, React.js, and Node.js. Features real-time chat and RESTful APIs.',
+
       image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       technologies: [SiReact],
       category: 'react',
