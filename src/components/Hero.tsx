@@ -5,7 +5,7 @@ import { SiGithub, SiLinkedin, SiReact, SiNextdotjs, SiNodedotjs, SiMongodb, SiT
 
 const Hero: React.FC = () => {
   const [typedText, setTypedText] = useState('');
-  const roles = ['Full Stack MERN Developer', 'React & Next.js Engineer', 'Node.js Backend Developer'];
+  const roles = ['React & TypeScript Developer', 'Frontend UI Engineer', 'JavaScript Developer'];
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -124,7 +124,7 @@ const Hero: React.FC = () => {
 
             {/* Professional pitch statement */}
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
-              Self-taught MERN Stack Developer building optimized frontend interfaces and scalable backend REST APIs. Focused on React, Next.js, Node.js, Express, and MongoDB.
+              Self-taught React &amp; TypeScript Developer building optimized web interfaces and responsive frontend applications. Focused on React, Next.js, and Tailwind CSS.
             </p>
 
             {/* Key Tech Stack Showcase above the fold */}
@@ -242,7 +242,7 @@ const Hero: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200">
-                      MERN Developer
+                      React Developer
                     </h4>
                     <p className="text-[10px] text-slate-500 dark:text-slate-400">
                       Remote Team Ready

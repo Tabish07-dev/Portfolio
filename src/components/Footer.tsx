@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
               Tabish Ali Soomro
             </h3>
             <p className="text-sm text-slate-400">
-              Full Stack MERN Developer
+              React &amp; TypeScript Developer
             </p>
           </div>
 

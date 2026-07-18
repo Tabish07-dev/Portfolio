@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiExternalLink, HiCode, HiEye, HiCheck, HiOutlineSparkles, HiChevronDown, HiChevronUp, HiDeviceMobile } from 'react-icons/hi';
+import { HiCode, HiEye, HiCheck, HiOutlineSparkles, HiChevronDown, HiChevronUp, HiDeviceMobile } from 'react-icons/hi';
 import {
   SiReact,
   SiNextdotjs,
-  SiNodedotjs,
-  SiExpress,
-  SiMongodb,
   SiTailwindcss,
   SiTypescript,
   SiJavascript
@@ -42,117 +39,106 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
   const projects = [
     {
       id: 1,
-      title: 'MERN Social App',
-      role: 'Full Stack Developer',
-      description: 'A React & Node.js social networking app with real-time messages, feed updates, post creation, image uploads, and likes/comments interactions.',
-      problemSolved: 'Slow and disjointed user interactions in social feeds lacking real-time feed updates.',
-      challenges: 'Managing instant Socket.io connections while syncing state to MongoDB, and handle image uploads without freezing UI thread.',
-      results: 'Achieved sub-100ms real-time chat latency and optimized page load speeds by offloading media uploads to Cloudinary API.',
-      whatLearned: 'Mastered managing web sockets in React lifecycles and configuring secure CORS handling between decoupled REST endpoints.',
-      featured: true,
-      features: ['Real-time private messages', 'Post feeds with Cloudinary uploads', 'Interactive likes & comments', 'JWT token authorization'],
-      image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      technologies: [
-        { name: 'React', icon: SiReact, color: 'text-sky-500' },
-        { name: 'Node.js', icon: SiNodedotjs, color: 'text-green-600' },
-        { name: 'Express.js', icon: SiExpress, color: 'text-slate-700 dark:text-slate-300' },
-        { name: 'MongoDB', icon: SiMongodb, color: 'text-emerald-500' }
-      ],
-      category: 'fullstack',
-      demoId: 'task-manager',
-      codeUrl: 'https://github.com/Tabish07-dev/mern-social-app'
-    },
-    {
-      id: 2,
-      title: 'Ecommerce Store',
-      role: 'Full Stack Developer',
-      description: 'A next-gen ecommerce shopping solution featuring instant search, filter components, cart systems, and Stripe integration.',
-      problemSolved: 'Recurrent user drop-offs due to sluggish checkout page transitions and non-persistent carts.',
-      challenges: 'Implementing atomic state changes across product cards, cart sliders, and ensuring security during checkout sessions.',
-      results: 'Integrated Stripe Webhooks for secure payment processing, achieving 100% secure checkouts, and lowered database query response time by 30%.',
-      whatLearned: 'Learned validation practices for transactional API payloads and how to coordinate distributed client states.',
-      featured: true,
-      features: ['Persistent local cart storage', 'Product category & price filtering', 'Stripe checkout flow', 'Secure admin dashboards'],
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      technologies: [
-        { name: 'Next.js', icon: SiNextdotjs, color: 'text-slate-900 dark:text-white' },
-        { name: 'React', icon: SiReact, color: 'text-sky-500' },
-        { name: 'Tailwind', icon: SiTailwindcss, color: 'text-teal-500' },
-        { name: 'MongoDB', icon: SiMongodb, color: 'text-emerald-500' }
-      ],
-      category: 'fullstack',
-      demoId: 'ecommerce',
-      codeUrl: 'https://github.com/Tabish07-dev/ecommerce-store'
-    },
-    {
-      id: 3,
-      title: 'Restaurant Website',
-      role: 'Frontend UI Developer',
-      description: 'An elegant reservation-based restaurant app with active booking forms, interactive menu browsing, and custom styling animations.',
-      problemSolved: 'Local food venues losing reservations due to lack of a responsive digital booking desk.',
-      challenges: 'Designing dynamic booking forms that prevent double-booking scheduling errors on the frontend client.',
-      results: 'Built a fluid table scheduling client operating at 60fps on mobile browsers, boosting booking conversion by 25%.',
-      whatLearned: 'Deepened skills in CSS grid layouts, form field state validation, and micro scroll transitions.',
-      featured: false,
-      features: ['Dynamic menu category browsing', 'Table reservation scheduling forms', 'Premium layout scroll transitions', 'Fully responsive layouts'],
-      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      technologies: [
-        { name: 'React', icon: SiReact, color: 'text-sky-500' },
-        { name: 'Tailwind', icon: SiTailwindcss, color: 'text-teal-500' },
-        { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-500' }
-      ],
-      category: 'frontend',
-      demoId: 'restaurant',
-      codeUrl: 'https://github.com/Tabish07-dev/restaurant-website'
-    },
-    {
-      id: 4,
       title: 'Task Management App',
       role: 'Sole Developer',
-      description: 'A productivity dashboard including task cards, kanban drag-and-drop columns, progress indicators, and custom labels.',
-      problemSolved: 'Cluttered workflow states failing to update lists instantaneously across card transitions.',
-      challenges: 'Constructing robust drag-and-drop layouts with consistent backend persistence without page refreshes.',
-      results: 'Engineered a highly responsive drag calendar with local state preservation, providing a clean dashboard UI.',
-      whatLearned: 'Gained experience handling complex drag-and-drop layout components and optimizing browser layout cycles.',
-      featured: false,
-      features: ['Interactive Kanban board', 'Task priorities & labels', 'Dynamic project workspaces', 'Progress statistics widgets'],
+      description: 'A frontend task workflow board containing priority levels and live status category lists.',
+      problemSolved: 'Static workflows failing to update cards instantaneously.',
+      challenges: 'Constructing robust state mutations for tasks without page refreshes.',
+      results: 'Engineered a highly responsive task board with immediate state updates and local counters.',
+      whatLearned: 'Mastered managing local state arrays and conditional input options in React.',
+      featured: true,
+      features: ['Add tasks with description and priority', 'Update task columns (To Do, In Progress, Completed)', 'Live state statistics tracker', 'Remove tasks from state'],
       image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       technologies: [
         { name: 'React', icon: SiReact, color: 'text-sky-500' },
         { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-500' },
         { name: 'Tailwind', icon: SiTailwindcss, color: 'text-teal-500' }
       ],
-      category: 'frontend',
       demoId: 'task-manager',
       codeUrl: 'https://github.com/Tabish07-dev/task-management-app'
+    },
+    {
+      id: 2,
+      title: 'Ecommerce Store UI',
+      role: 'Frontend Developer',
+      description: 'A shopping app mock-up featuring product grids, local item reviews, and dynamic cart sliders.',
+      problemSolved: 'Ineffective client shopping cart persistence and sluggish slider states.',
+      challenges: 'Syncing product actions across independent components like counts and checkout list panels.',
+      results: 'Developed an interactive shopping prototype with smooth slide-in panels and price sums.',
+      whatLearned: 'Learned state sharing practices and utilizing React array states.',
+      featured: true,
+      features: ['Add product items to cart', 'Toggle side-drawer cart list', 'Dynamic total price updates', 'Local item reviews & star ratings'],
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      technologies: [
+        { name: 'React', icon: SiReact, color: 'text-sky-500' },
+        { name: 'Tailwind', icon: SiTailwindcss, color: 'text-teal-500' },
+        { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-500' }
+      ],
+      demoId: 'ecommerce',
+      codeUrl: 'https://github.com/Tabish07-dev/ecommerce-store'
+    },
+    {
+      id: 3,
+      title: 'Restaurant Website UI',
+      role: 'Frontend Developer',
+      description: 'An interactive restaurant reservation and menu UI with category filtering and table scheduling forms.',
+      problemSolved: 'Lack of interactive desk reservation views for mobile users.',
+      challenges: 'Form field state validation to prevent empty dates or invalid guest entries.',
+      results: 'Built a booking desk interface operating smoothly on mobile browsers.',
+      whatLearned: 'Deepened styling skills with Tailwind CSS grids and micro-interactions.',
+      features: ['Interactive menu category browsing', 'Table reservation scheduling forms', 'Premium layout scroll transitions', 'Responsive mobile grid navigation'],
+      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      technologies: [
+        { name: 'React', icon: SiReact, color: 'text-sky-500' },
+        { name: 'Tailwind', icon: SiTailwindcss, color: 'text-teal-500' },
+        { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-500' }
+      ],
+      demoId: 'restaurant',
+      codeUrl: 'https://github.com/Tabish07-dev/restaurant-website'
+    },
+    {
+      id: 4,
+      title: 'Blog Platform UI',
+      role: 'Frontend Developer',
+      description: 'A clean content reading layout with local comment additions and search filters.',
+      problemSolved: 'Sluggish local content searches and comments listings.',
+      challenges: 'Designing dynamic text-based regex filters that update view lists in real-time.',
+      results: 'Completed a clean content layout with search capability and local comment submission.',
+      whatLearned: 'Mastered client-side filtering logic and React state callbacks.',
+      features: ['Instant keyword-based article search', 'Category tag filtering (Tech, Design, Life)', 'Local comment submission box', 'Article reading time metrics'],
+      image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      technologies: [
+        { name: 'React', icon: SiReact, color: 'text-sky-500' },
+        { name: 'Tailwind', icon: SiTailwindcss, color: 'text-teal-500' },
+        { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-500' }
+      ],
+      demoId: 'blog-platform',
+      codeUrl: 'https://github.com/Tabish07-dev/blog-platform'
     },
     {
       id: 5,
       title: 'Developer Portfolio',
       role: 'Creator',
       description: 'The portfolio you are looking at right now, crafted with clean components, fluid layout transitions, and high-performance design.',
-      problemSolved: 'Static, simple portfolios failing to demonstrate full-stack MERN competence and live component operations.',
+      problemSolved: 'Standard portfolios lacking real-time data integration and micro interactions.',
       challenges: 'Structuring dynamic, light/dark responsive theme states without layout shift flashes.',
-      results: 'Launched a world-class portfolio achieving 95+ Lighthouse optimization scores, featuring real-time fetched GitHub metrics.',
-      whatLearned: 'Mastered optimizing static assets, SEO schema markup, accessibility standards, and clean state animations.',
-      featured: false,
-      features: ['Apple/Vercel-inspired aesthetics', 'Interactive project demo panels', 'Dark & light theme toggle', 'Integrated GitHub graph API stats'],
+      results: 'Launched a developer website with high Lighthouse scores, showing real-time fetched GitHub metrics.',
+      whatLearned: 'Learned custom React state persistence, accessibility guidelines, and SEO schemas.',
+      features: ['Dark & light theme toggle with local storage', 'Dynamic client-side GitHub statistics fetcher', 'Copy-to-clipboard buttons with Stripe-style toast notifier', 'Scroll progress indicator & floating scroll-to-top button'],
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       technologies: [
         { name: 'React', icon: SiReact, color: 'text-sky-500' },
         { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-500' },
         { name: 'Tailwind', icon: SiTailwindcss, color: 'text-teal-500' }
       ],
-      category: 'frontend',
       demoId: null,
-      codeUrl: 'https://github.com/Tabish07-dev/portfolio'
+      codeUrl: 'https://github.com/Tabish07-dev/Portfolio'
     }
   ];
 
   const filteredProjects = projects.filter((project) => {
     if (filter === 'all') return true;
-    if (filter === 'fullstack') return project.category === 'fullstack';
-    if (filter === 'frontend') return project.category === 'frontend';
+    if (filter === 'featured') return project.featured;
     return true;
   });
 
@@ -177,13 +163,13 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mt-4 text-base sm:text-lg"
           >
-            A direct overview of the architectures, engineering constraints, and solutions I built.
+            A direct overview of the architectures, layouts, and solutions I built.
           </motion.p>
         </div>
 
         {/* Filter Controls */}
         <div className="flex justify-center gap-3 mb-12">
-          {['all', 'fullstack', 'frontend'].map((category) => (
+          {['all', 'featured'].map((category) => (
             <button
               key={category}
               onClick={() => setFilter(category)}
@@ -193,7 +179,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
-              {category === 'all' ? 'All Projects' : category}
+              {category === 'all' ? 'All Projects' : 'Featured Case Studies'}
             </button>
           ))}
         </div>
@@ -228,7 +214,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
                   {project.featured && (
                     <span className="inline-flex items-center gap-1 text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-amber-500 text-slate-950 shadow-xs animate-pulse">
                       <HiOutlineSparkles className="h-2.5 w-2.5" />
-                      <span>Featured Case Study</span>
+                      <span>Featured</span>
                     </span>
                   )}
                 </div>
@@ -290,14 +276,16 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
                             {project.challenges}
                           </p>
                         </div>
-                        <div>
-                          <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">
-                            What I Learned
-                          </span>
-                          <p className="text-xs font-medium text-slate-700 dark:text-slate-300 mt-0.5">
-                            {project.whatLearned}
-                          </p>
-                        </div>
+                        {project.whatLearned && (
+                          <div>
+                            <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">
+                              What I Learned
+                            </span>
+                            <p className="text-xs font-medium text-slate-700 dark:text-slate-300 mt-0.5">
+                              {project.whatLearned}
+                            </p>
+                          </div>
+                        )}
                         <div>
                           <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">
                             Results &amp; Impact

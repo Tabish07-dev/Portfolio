@@ -118,7 +118,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mt-4 text-base sm:text-lg"
           >
-            Have an open position or want to collaborate on a full stack MERN project? Feel free to drop a message!
+            Have an open position or want to collaborate on a React / TypeScript project? Feel free to drop a message!
           </motion.p>
         </div>
 

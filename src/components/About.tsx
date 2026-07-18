@@ -22,11 +22,11 @@ const About: React.FC = () => {
     },
     {
       year: '2025',
-      title: 'Backend, Database & Full Stack MERN',
-      subtitle: 'Server-Side & Data Persistence',
-      description: 'Engineered REST APIs using Node.js & Express.js. Designed schemas and index configurations in MongoDB and PostgreSQL, and integrated secure JWT authentication.',
+      title: 'Backend Basics & REST Integrations',
+      subtitle: 'Mock API & Local Data Flow',
+      description: 'Studied server-side fundamentals with Node.js and Express.js. Practiced database concepts using basic MongoDB and local storage structures to support frontend interfaces.',
       icon: HiDatabase,
-      skills: ['Node.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'MERN Stack']
+      skills: ['Node.js', 'Express.js', 'MongoDB basics', 'Local API Integration']
     },
     {
       year: '2026',
@@ -59,7 +59,7 @@ const About: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mt-4 text-base sm:text-lg"
           >
-            A self-taught Full Stack MERN Developer driven by logic, consistency, and a passion for engineering high-performance web applications.
+            A self-taught React &amp; TypeScript Developer driven by logic, consistency, and a passion for engineering responsive web applications.
           </motion.p>
         </div>
 

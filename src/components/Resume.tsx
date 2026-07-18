@@ -98,7 +98,7 @@ const Resume: React.FC = () => {
                     Professional Brief
                   </h4>
                   <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
-                    Self-taught Full Stack MERN engineer focused on launching interactive React interfaces and REST backend APIs. Dedicated to code modularity, test-driven efficiency, and cross-browser responsiveness.
+                    Self-taught React &amp; TypeScript developer focused on building interactive web interfaces and responsive frontend applications. Dedicated to modular UI architecture and clean state mutations.
                   </p>
                 </div>
 
@@ -151,11 +151,11 @@ const Resume: React.FC = () => {
                         <span className="text-[10px] font-bold text-slate-400">2024 - Present</span>
                       </div>
                       <p className="text-xs text-slate-600 dark:text-slate-400 mt-1.5 leading-relaxed">
-                        • Engineered a scalable MERN social network app featuring Cloudinary uploads and real-time Socket.io messages.
+                        • Developed an interactive frontend Task Management dashboard with local workflow column changes and priority filters.
                         <br />
-                        • Built a Next.js ecommerce web solution with Price filters, Stripe Checkouts, and persistent cart state.
+                        • Designed a responsive Ecommerce shopping catalog interface featuring Star reviews and local cart state managers.
                         <br />
-                        • Structured drag-and-drop Kanban task boards with LocalStorage caching policies.
+                        • Built table reservation booking forms and active menu category selectors for dining venues.
                       </p>
                     </div>
                   </div>
