@@ -48,6 +48,8 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
       problemSolved: 'Slow and disjointed user interactions in social feeds lacking real-time feed updates.',
       challenges: 'Managing instant Socket.io connections while syncing state to MongoDB, and handle image uploads without freezing UI thread.',
       results: 'Achieved sub-100ms real-time chat latency and optimized page load speeds by offloading media uploads to Cloudinary API.',
+      whatLearned: 'Mastered managing web sockets in React lifecycles and configuring secure CORS handling between decoupled REST endpoints.',
+      featured: true,
       features: ['Real-time private messages', 'Post feeds with Cloudinary uploads', 'Interactive likes & comments', 'JWT token authorization'],
       image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       technologies: [
@@ -57,7 +59,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
         { name: 'MongoDB', icon: SiMongodb, color: 'text-emerald-500' }
       ],
       category: 'fullstack',
-      demoId: 'task-manager', // fall back to task-manager demo
+      demoId: 'task-manager',
       codeUrl: 'https://github.com/Tabish07-dev/mern-social-app'
     },
     {
@@ -68,6 +70,8 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
       problemSolved: 'Recurrent user drop-offs due to sluggish checkout page transitions and non-persistent carts.',
       challenges: 'Implementing atomic state changes across product cards, cart sliders, and ensuring security during checkout sessions.',
       results: 'Integrated Stripe Webhooks for secure payment processing, achieving 100% secure checkouts, and lowered database query response time by 30%.',
+      whatLearned: 'Learned validation practices for transactional API payloads and how to coordinate distributed client states.',
+      featured: true,
       features: ['Persistent local cart storage', 'Product category & price filtering', 'Stripe checkout flow', 'Secure admin dashboards'],
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       technologies: [
@@ -88,6 +92,8 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
       problemSolved: 'Local food venues losing reservations due to lack of a responsive digital booking desk.',
       challenges: 'Designing dynamic booking forms that prevent double-booking scheduling errors on the frontend client.',
       results: 'Built a fluid table scheduling client operating at 60fps on mobile browsers, boosting booking conversion by 25%.',
+      whatLearned: 'Deepened skills in CSS grid layouts, form field state validation, and micro scroll transitions.',
+      featured: false,
       features: ['Dynamic menu category browsing', 'Table reservation scheduling forms', 'Premium layout scroll transitions', 'Fully responsive layouts'],
       image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       technologies: [
@@ -107,6 +113,8 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
       problemSolved: 'Cluttered workflow states failing to update lists instantaneously across card transitions.',
       challenges: 'Constructing robust drag-and-drop layouts with consistent backend persistence without page refreshes.',
       results: 'Engineered a highly responsive drag calendar with local state preservation, providing a clean dashboard UI.',
+      whatLearned: 'Gained experience handling complex drag-and-drop layout components and optimizing browser layout cycles.',
+      featured: false,
       features: ['Interactive Kanban board', 'Task priorities & labels', 'Dynamic project workspaces', 'Progress statistics widgets'],
       image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       technologies: [
@@ -126,6 +134,8 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
       problemSolved: 'Static, simple portfolios failing to demonstrate full-stack MERN competence and live component operations.',
       challenges: 'Structuring dynamic, light/dark responsive theme states without layout shift flashes.',
       results: 'Launched a world-class portfolio achieving 95+ Lighthouse optimization scores, featuring real-time fetched GitHub metrics.',
+      whatLearned: 'Mastered optimizing static assets, SEO schema markup, accessibility standards, and clean state animations.',
+      featured: false,
       features: ['Apple/Vercel-inspired aesthetics', 'Interactive project demo panels', 'Dark & light theme toggle', 'Integrated GitHub graph API stats'],
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       technologies: [
@@ -139,15 +149,12 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
     }
   ];
 
-  const filters = [
-    { key: 'all', label: 'All Projects' },
-    { key: 'fullstack', label: 'Full Stack MERN' },
-    { key: 'frontend', label: 'Frontend UI' }
-  ];
-
-  const filteredProjects = filter === 'all'
-    ? projects
-    : projects.filter(project => project.category === filter);
+  const filteredProjects = projects.filter((project) => {
+    if (filter === 'all') return true;
+    if (filter === 'fullstack') return project.category === 'fullstack';
+    if (filter === 'frontend') return project.category === 'frontend';
+    return true;
+  });
 
   return (
     <section id="projects" className="section-padding bg-white dark:bg-slate-900 transition-colors duration-300">
@@ -155,40 +162,40 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.5 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white"
           >
-            Featured <span className="gradient-text">Projects</span>
+            Case <span className="gradient-text">Studies</span>
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.05 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mt-4 text-base sm:text-lg"
           >
-            An in-depth showcase of engineering solutions detailing role, problem statements, and results.
+            A direct overview of the architectures, engineering constraints, and solutions I built.
           </motion.p>
+        </div>
 
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-2 mt-8">
-            {filters.map((filterItem) => (
-              <button
-                key={filterItem.key}
-                onClick={() => setFilter(filterItem.key)}
-                className={`px-4.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${
-                  filter === filterItem.key
-                    ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/10'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-                }`}
-              >
-                {filterItem.label}
-              </button>
-            ))}
-          </div>
+        {/* Filter Controls */}
+        <div className="flex justify-center gap-3 mb-12">
+          {['all', 'fullstack', 'frontend'].map((category) => (
+            <button
+              key={category}
+              onClick={() => setFilter(category)}
+              className={`px-4.5 py-1.5 rounded-full text-xs font-bold capitalize transition-all duration-300 ${
+                filter === category
+                  ? 'bg-blue-600 text-white shadow-md'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+              }`}
+            >
+              {category === 'all' ? 'All Projects' : category}
+            </button>
+          ))}
         </div>
 
         {/* Projects Grid */}
@@ -196,61 +203,43 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
           {filteredProjects.map((project) => (
             <motion.div
               layout
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
               key={project.id}
-              className="glass-card flex flex-col h-full overflow-hidden hover:shadow-lg hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300"
+              className="glass-card flex flex-col justify-between overflow-hidden group hover:shadow-2xl hover:border-slate-350 dark:hover:border-slate-750 transition-all duration-300"
             >
-              {/* Project Image & Badges */}
-              <div className="relative overflow-hidden h-44 bg-slate-100 dark:bg-slate-800 group">
+              {/* Image & Badges */}
+              <div className="relative h-44 w-full overflow-hidden bg-slate-900">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
                   loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 
-                {/* Badges Overlay */}
-                <div className="absolute top-3 left-3 right-3 flex justify-between items-center pointer-events-none">
-                  {/* Role Badge */}
-                  <span className="bg-slate-900/80 backdrop-blur-xs text-white text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-700">
-                    {project.role}
-                  </span>
-                  
-                  {/* Responsive badge */}
-                  <span className="inline-flex items-center gap-1 bg-emerald-600/90 backdrop-blur-xs text-white text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-500">
-                    <HiDeviceMobile className="h-3 w-3 shrink-0" />
+                {/* Badges Container */}
+                <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                  <span className="inline-flex items-center gap-1 text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-blue-600 text-white shadow-xs">
+                    <HiDeviceMobile className="h-2.5 w-2.5" />
                     <span>Responsive UI</span>
                   </span>
-                </div>
-
-                {/* Overlay for quick actions */}
-                <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-3 backdrop-blur-[1px]">
-                  {project.demoId && (
-                    <button
-                      onClick={() => openDemo(project.demoId)}
-                      className="bg-white text-slate-950 p-2 rounded-full hover:bg-slate-100 hover:scale-105 active:scale-95 transition-all shadow-md"
-                      title="Live Demo"
-                    >
-                      <HiEye className="h-4.5 w-4.5" />
-                    </button>
+                  {project.featured && (
+                    <span className="inline-flex items-center gap-1 text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-amber-500 text-slate-950 shadow-xs animate-pulse">
+                      <HiOutlineSparkles className="h-2.5 w-2.5" />
+                      <span>Featured Case Study</span>
+                    </span>
                   )}
-                  <a
-                    href={project.codeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-white text-slate-950 p-2 rounded-full hover:bg-slate-100 hover:scale-105 active:scale-95 transition-all shadow-md"
-                    title="View Code"
-                  >
-                    <HiCode className="h-4.5 w-4.5" />
-                  </a>
                 </div>
               </div>
 
-              {/* Project Content */}
-              <div className="p-5 flex-1 flex flex-col justify-between">
+              {/* Card Details */}
+              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                 <div>
                   {/* Title & Chevron toggle */}
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <h3 className="text-lg font-bold text-slate-950 dark:text-white">
+                    <h3 className="text-base font-extrabold text-slate-950 dark:text-white">
                       {project.title}
                     </h3>
                     <button
@@ -263,7 +252,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
                   </div>
                   
                   {/* Short Description */}
-                  <p className="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed font-medium">
                     {project.description}
                   </p>
 
@@ -279,6 +268,14 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
                       >
                         <div>
                           <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">
+                            Role in Project
+                          </span>
+                          <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 mt-0.5">
+                            {project.role}
+                          </p>
+                        </div>
+                        <div>
+                          <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">
                             Problem Solved
                           </span>
                           <p className="text-xs font-medium text-slate-700 dark:text-slate-300 mt-0.5">
@@ -291,6 +288,14 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
                           </span>
                           <p className="text-xs font-medium text-slate-700 dark:text-slate-300 mt-0.5">
                             {project.challenges}
+                          </p>
+                        </div>
+                        <div>
+                          <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">
+                            What I Learned
+                          </span>
+                          <p className="text-xs font-medium text-slate-700 dark:text-slate-300 mt-0.5">
+                            {project.whatLearned}
                           </p>
                         </div>
                         <div>
@@ -324,7 +329,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onDemoOpen }) => {
 
                 <div>
                   {/* Tech Badges */}
-                  <div className="flex flex-wrap gap-1 mb-4.5 border-t border-slate-100 dark:border-slate-800/80 pt-3">
+                  <div className="flex flex-wrap gap-1 mb-4 border-t border-slate-100 dark:border-slate-800/80 pt-3">
                     {project.technologies.map((tech) => {
                       const Icon = tech.icon;
                       return (

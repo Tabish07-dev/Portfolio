@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { HiCode, HiDatabase, HiTerminal, HiDeviceMobile, HiGlobe } from 'react-icons/hi';
+import { HiCode, HiDatabase, HiTerminal, HiDeviceMobile, HiGlobe, HiUserGroup } from 'react-icons/hi';
 import {
   SiReact,
   SiNextdotjs,
@@ -59,6 +59,15 @@ const Skills: React.FC = () => {
         { name: 'Git Version', icon: SiGit, color: 'text-orange-600', barColor: 'bg-orange-600', level: '90%', desc: 'Advanced' },
         { name: 'GitHub Sync', icon: SiGithub, color: 'text-slate-950 dark:text-white', barColor: 'bg-slate-950 dark:bg-white', level: '90%', desc: 'Advanced' }
       ]
+    },
+    {
+      title: 'Soft Skills',
+      icon: HiUserGroup,
+      skills: [
+        { name: 'Async Comm', icon: HiGlobe, color: 'text-indigo-500', barColor: 'bg-indigo-500', level: '90%', desc: 'Advanced' },
+        { name: 'Self-Directed Study', icon: HiCode, color: 'text-violet-500', barColor: 'bg-violet-500', level: '95%', desc: 'Expert' },
+        { name: 'Collaboration', icon: HiUserGroup, color: 'text-emerald-500', barColor: 'bg-emerald-500', level: '90%', desc: 'Advanced' }
+      ]
     }
   ];
 
@@ -67,7 +76,7 @@ const Skills: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.05
+        staggerChildren: 0.03
       }
     }
   };
@@ -114,46 +123,46 @@ const Skills: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6"
         >
           {categories.map((category) => (
             <motion.div
               key={category.title}
               variants={itemVariants}
-              className="glass-card p-6 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="glass-card p-5 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
               <div>
                 {/* Category Header */}
-                <div className="flex items-center gap-3 mb-6 border-b border-slate-200/50 dark:border-slate-800/50 pb-3">
+                <div className="flex items-center gap-2 mb-4 border-b border-slate-200/50 dark:border-slate-800/50 pb-3">
                   <div className="p-2 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
-                    <category.icon className="h-5 w-5" />
+                    <category.icon className="h-4.5 w-4.5" />
                   </div>
-                  <h3 className="text-base font-bold text-slate-950 dark:text-white">
+                  <h3 className="text-sm font-bold text-slate-950 dark:text-white">
                     {category.title}
                   </h3>
                 </div>
 
                 {/* Category Skills */}
-                <div className="space-y-4">
+                <div className="space-y-3.5">
                   {category.skills.map((skill) => (
                     <div
                       key={skill.name}
-                      className="group flex flex-col p-2.5 rounded-xl hover:bg-slate-100/55 dark:hover:bg-slate-800/40 transition-colors"
+                      className="group flex flex-col p-2 rounded-xl hover:bg-slate-100/55 dark:hover:bg-slate-800/40 transition-colors"
                     >
                       <div className="flex items-center justify-between mb-1.5">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1.5">
                           <skill.icon className={`h-4 w-4 ${skill.color} transition-transform group-hover:scale-110`} />
-                          <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                          <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300">
                             {skill.name}
                           </span>
                         </div>
-                        <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500">
+                        <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500">
                           {skill.desc}
                         </span>
                       </div>
                       
                       {/* Slick Progress Bar */}
-                      <div className="h-1.5 w-full bg-slate-200/50 dark:bg-slate-800 rounded-full overflow-hidden">
+                      <div className="h-1 w-full bg-slate-200/50 dark:bg-slate-800 rounded-full overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
                           whileInView={{ width: skill.level }}

@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { HiDownload, HiArrowRight, HiLocationMarker, HiBriefcase } from 'react-icons/hi';
+import { HiDownload, HiArrowRight, HiLocationMarker, HiBriefcase, HiSparkles } from 'react-icons/hi';
 import { SiGithub, SiLinkedin, SiReact, SiNextdotjs, SiNodedotjs, SiMongodb, SiTypescript, SiPostgresql, SiTailwindcss } from 'react-icons/si';
 
 const Hero: React.FC = () => {
   const [typedText, setTypedText] = useState('');
-  const roles = ['Full Stack MERN Developer', 'React & Next.js Engineer', 'Node.js Backend Expert'];
+  const roles = ['Full Stack MERN Developer', 'React & Next.js Engineer', 'Node.js Backend Developer'];
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     const activeRole = roles[roleIndex];
-    let typingSpeed = isDeleting ? 30 : 80;
+    let typingSpeed = isDeleting ? 25 : 75;
 
     if (!isDeleting && charIndex === activeRole.length) {
-      typingSpeed = 2000;
+      typingSpeed = 1800;
       setIsDeleting(true);
     } else if (isDeleting && charIndex === 0) {
-      setIsDeleting(false);
+      isDeleting && setIsDeleting(false);
       setRoleIndex((prev) => (prev + 1) % roles.length);
-      typingSpeed = 500;
+      typingSpeed = 400;
     }
 
     const timer = setTimeout(() => {
@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center pt-20 pb-12 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300"
+      className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300"
     >
       {/* Dynamic Grid Background Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] pointer-events-none"></div>
@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
       <div className="absolute bottom-1/4 right-1/12 w-80 h-80 bg-indigo-500/10 dark:bg-indigo-600/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
-        <div className="grid lg:grid-cols-12 gap-10 items-center">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
           
           {/* Recruiter-focused Left Profile details */}
           <motion.div
@@ -83,29 +83,36 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="lg:col-span-7 space-y-6 text-left"
           >
-            {/* Availability and Location row */}
-            <div className="flex flex-wrap gap-2.5 items-center">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/5 dark:text-emerald-400 border border-emerald-500/20">
+            {/* Professional status badges */}
+            <div className="flex flex-wrap gap-2 items-center">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                <span>Available for Remote Work</span>
+                <span>Open to Remote Work</span>
               </span>
 
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 dark:bg-slate-900 dark:text-slate-300 border border-slate-200 dark:border-slate-800">
-                <HiLocationMarker className="h-3.5 w-3.5 text-red-500" />
-                <span>Dadu, Sindh, Pakistan</span>
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">
+                <span>📍 Pakistan</span>
+              </span>
+
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">
+                <span>🌍 Remote Ready</span>
+              </span>
+
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">
+                <span>⚡ Fast Learner</span>
               </span>
             </div>
 
             {/* Name and typing animation */}
             <div className="space-y-1">
-              <p className="text-sm font-semibold tracking-wider text-blue-600 dark:text-blue-400 uppercase">
+              <p className="text-xs font-extrabold tracking-widest text-blue-600 dark:text-blue-400 uppercase">
                 Software Engineer Portfolio
               </p>
               <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-950 dark:text-white leading-none">
                 Tabish Ali Soomro
               </h1>
               <div className="h-10 flex items-center">
-                <p className="text-xl sm:text-2xl font-bold text-slate-700 dark:text-slate-300">
+                <p className="text-lg sm:text-2xl font-bold text-slate-700 dark:text-slate-300">
                   Specializing in{' '}
                   <span className="bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-300 bg-clip-text text-transparent">
                     {typedText}
@@ -116,22 +123,22 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Professional pitch statement */}
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
-              Self-taught MERN Stack Developer build-tested on production-grade components. Focused on launching fast, scalable web apps using React, Next.js, Node.js, Express, and MongoDB. Ready for remote teams.
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+              Self-taught MERN Stack Developer building optimized frontend interfaces and scalable backend REST APIs. Focused on React, Next.js, Node.js, Express, and MongoDB.
             </p>
 
             {/* Key Tech Stack Showcase above the fold */}
-            <div className="space-y-2.5 pt-2">
-              <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
+            <div className="space-y-2 pt-1">
+              <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
                 Core Stack
               </p>
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-2">
                 {techStack.map((tech) => (
                   <span
                     key={tech.name}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80 text-xs font-semibold text-slate-700 dark:text-slate-300 shadow-2xs hover:border-slate-300 dark:hover:border-slate-700 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/85 text-xs font-bold text-slate-750 dark:text-slate-300 shadow-2xs hover:border-slate-300 dark:hover:border-slate-700 transition-colors"
                   >
-                    <tech.icon className={`h-4 w-4 text-slate-500 transition-colors ${tech.color}`} />
+                    <tech.icon className={`h-3.5 w-3.5 text-slate-500 transition-colors ${tech.color}`} />
                     <span>{tech.name}</span>
                   </span>
                 ))}
@@ -139,28 +146,36 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Primary & Secondary Call to Actions */}
-            <div className="flex flex-wrap gap-3.5 pt-4">
+            <div className="flex flex-wrap gap-3 pt-3">
               <button
                 onClick={() => scrollToSection('#projects')}
-                className="btn-primary py-3 px-7 text-sm font-semibold shadow-md shadow-blue-500/20"
+                className="btn-primary py-3 px-6 text-xs font-bold shadow-md shadow-blue-500/20"
               >
                 <span>View Projects</span>
                 <HiArrowRight className="h-4 w-4" />
               </button>
 
-              <button
-                onClick={() => scrollToSection('#resume')}
-                className="btn-secondary py-3 px-7 text-sm font-semibold border-slate-300 dark:border-slate-700"
+              <a
+                href="/resume.pdf"
+                download="Tabish_Ali_Soomro_Resume.pdf"
+                className="btn-secondary py-3 px-6 text-xs font-bold border-slate-300 dark:border-slate-850 inline-flex items-center gap-1.5"
               >
                 <HiDownload className="h-4 w-4" />
-                <span>Resume Details</span>
+                <span>Download Resume</span>
+              </a>
+
+              <button
+                onClick={() => scrollToSection('#contact')}
+                className="btn-secondary py-3 px-6 text-xs font-bold border-slate-300 dark:border-slate-850"
+              >
+                <span>Contact Me</span>
               </button>
             </div>
 
             {/* Recruiter Social connections */}
-            <div className="flex items-center gap-3 pt-4 border-t border-slate-200/50 dark:border-slate-800/50 max-w-md">
-              <span className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                Recruiter Directs:
+            <div className="flex items-center gap-3 pt-3 border-t border-slate-200/50 dark:border-slate-800/50 max-w-md">
+              <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                Direct Profiles:
               </span>
               
               <a
@@ -169,7 +184,7 @@ const Hero: React.FC = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white transition-colors"
               >
-                <SiGithub className="h-4.5 w-4.5" />
+                <SiGithub className="h-4 w-4" />
                 <span>GitHub</span>
               </a>
 
@@ -181,7 +196,7 @@ const Hero: React.FC = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
-                <SiLinkedin className="h-4.5 w-4.5" />
+                <SiLinkedin className="h-4 w-4" />
                 <span>LinkedIn</span>
               </a>
             </div>
@@ -204,7 +219,8 @@ const Hero: React.FC = () => {
                 <img
                   src="/images/tabish-ali-profile.jpg.jpeg"
                   alt="Tabish Ali Soomro profile"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover animate-fade-in"
+                  loading="eager"
                 />
               </div>
 
@@ -218,18 +234,18 @@ const Hero: React.FC = () => {
                   duration: 3,
                   ease: 'easeInOut'
                 }}
-                className="absolute -bottom-4 -left-4 bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800/80 backdrop-blur-md px-4.5 py-3 rounded-2xl shadow-xl max-w-[200px]"
+                className="absolute -bottom-4 -left-4 bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800/80 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl max-w-[190px]"
               >
-                <div className="flex gap-2.5 items-center">
+                <div className="flex gap-2 items-center">
                   <div className="p-2 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
                     <HiBriefcase className="h-4 w-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-extrabold text-slate-800 dark:text-slate-200">
-                      MERN Engineer
+                    <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200">
+                      MERN Developer
                     </h4>
                     <p className="text-[10px] text-slate-500 dark:text-slate-400">
-                      5+ Scalable Projects Built
+                      Remote Team Ready
                     </p>
                   </div>
                 </div>
